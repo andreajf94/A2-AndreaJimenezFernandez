@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 2</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 2</small>
+			Minorities in Boston
+
+		<p>
+			<strong>Andrea Jimenez Fernandez</strong>
+		</p>
+		<em>andrejim@mit.edu</em>
+	</header>
+	<main>
+		<section>
+			<h2>Intoduction</h2>
+			<p>
+				Housing policies in Greater Boston have shaped who gets to live where for generations. In the past, practices like redlining, restrictive covenants, and discriminatory lending were used to separate communities by race and income. Even though these practices are no longer legal, their effects can still be seen today in who has access to stable, affordable housing and which neighborhoods remain exclusive or segregated.This analysis is just the beginning of a deeper dive into the lasting impact of historical housing discrimination. By looking at census data and income patterns, we aim to uncover how past policies still shape present-day housing access.
+			</p>
+		</section>
+			<h3>Overall Analysis Questions</h3>
+			<ol>
+				<li>What municipalities in Boston have the largest population of underrepresented minotities?</li>
+				<p>After reading the Housing Supply in Boston: Core Metrics, I found there was a GAP in knowledge regadring minorities and low income families. Most of that article talks abput general demographics and some mobility of population but, understanding where underrepresented minority populations are concentrated is the first step in analyzing whether they are being pushed away from city centers, experiencing limited access to resources, or facing urban segregation. This insight helps provide a clearer picture of demographic distribution, potential disparities in infrastructure, and access to economic opportunities. By identifying these trends, we can better understand the forces shaping community locations and their impact on social and economic mobility.
+				</p>
+				<li>How does household income distribution vary across municipalities in the Boston area related with minorities?</li>
+				<p>On 2023 the Racial Wealth Equity Research Center studied if  Zoning’s Use as a Tool of Race, Class, and Family Exclusion in Boston’s Suburbs. I wanted to review if I found any correlation with this study and this data set as examining income distribution across municipalities helps identify economic disparities and potential segregation. Analyzing whether lower-income households are concentrated in specific areas can reveal patterns of economic inequality. Additionally, understanding how zoning and homeownership impact income distribution provides insights into whether certain policies favor wealthier residents.
+				</p>
+				<li>Do municipalities with a higher percentage of single-family zoning have fewer low-income households?</li>
+				<p>As a follow-up qustion I wanted to understand if zoing had an impact from one to other depending on the amount of people in a household. For me, understanding the relationship between single-family zoning and low-income households is crucial because zoning policies impact housing affordability, economic diversity, and social equity. If municipalities with higher single-family zoning have fewer low-income households, it may suggest that restrictive zoning contributes to economic exclusion by limiting affordable housing options. This can reinforce income and racial segregation, reduce access to jobs and services, and affect economic mobility. Insights from this analysis can inform zoning reforms to promote more inclusive housing policies, ensuring a balance between housing supply and economic diversity while supporting sustainable urban growth.</p>
+			</ol>
+		</section>
+
+		<section>
+			<h2>Data Evaluation</h2>
+			<p>The purpose of this evaluation is to assess the completeness and accuracy of the provided datasets to determine whether further cleaning is needed or if potential data gaps could lead to misleading conclusions. The analysis relies on two datasets: a GeoJSON file containing the geographic boundaries of municipalities in the Boston area and a census dataset that includes demographic details such as ethnicity, household income, and household types for each municipality. By reviewing these datasets, we aim to identify inconsistencies, missing data, or structural issues that may impact the validity of the analysis.
+			</p>
+			<figure>
+				<img src="map2.jpg" alt="Map visualization" style="max-width: 80%; height: auto;" />
+				<figcaption>
+					The Reviewing all municipalities and correct location in map, and complete.
+				</figcaption>
+			</figure>
+			<p>
+				The analysis confirmed that there were no duplicate entries or null values in the dataset and that it includes a total of 100 municipalities. However, a key issue identified is that the municipality IDs (muni_id) and names differ between the GeoJSON and census datasets, preventing a direct merge for geospatial analysis. To address this, modifications are required to standardize municipality names and align the unique identifiers across both datasets, ensuring accurate integration for mapping and further spatial analysis.	
+			<p>
+			<figure>
+				<img src="Population vs Household counts.png" alt="" />
+				<figcaption>
+					Scatterplot of Population vs. Household Counts
+				</figcaption>
+			</figure>
+			<p>
+				This plot was generated to review potential inconsistencies in the dataset. Each point represents a municipality, with population on the x-axis and household count on the y-axis. Red points highlight municipalities that report a population of zero while still having households, which suggests possible data entry errors, missing values, or classification issues. Identifying these anomalies is a crucial first step in the data cleaning process to ensure accurate analysis moving forward. The municipalities identified with cero population were: Framingham
+				Lynn, 
+				Burlington, 
+				Chelsea, 
+				Sharon, 
+				Belmont, 
+				Somerville, 
+				Sudbury, 
+				Everett, Waltham, Clearly there is issues with the data colection or consistency. Theses cities were not utilized on this study as they were excluded from the filtered dataset.
+			</p>
+
+
+			<figure>
+				<img src="Duplicates.png" alt="" />
+				<figcaption>
+					Identifying Duplicate Municipalities and Its Importance
+				</figcaption>
+			</figure>
+			<p>
+				After identifying that some municipalities in the dataset had an associated population of zero, I conducted a further data validation step to check for duplicate entries, as these could indicate data quality issues such as redundant records, inconsistent naming conventions, or zoning-based segmentation. To analyze this, I counted how many times each municipality appeared in the dataset, classifying those with more than one occurrence as "Duplicate" and those appearing only once as "Non-Duplicate". I visualized the results using a pie chart, where duplicates (orange) represent municipalities appearing multiple times and non-duplicates (teal) represent unique entries. This analysis is crucial to ensure the dataset is clean, reliable, and free from misrepresented or duplicated data, which could otherwise distort demographic, zoning, and statistical interpretations. The data points of the duplicate cities were merged. After cleaning the data, there are 97 cities left
+			</p>
+			<p>
+
+			</p>
+		<section>
+			<h2>What municipalities in Boston have the largest population of underrepresented minotities?</h2>
+
+			<figure>
+				<img src="total underrepresented.png" alt="Map visualization" style="max-width: 80%; height: auto;" />
+				<figcaption>
+					Demographic Breakdown of Underrepresented Minority Groups
+				</figcaption>
+			</figure>
+			<p>By understanding population density and identifying the largest minority groups in the area, we can determine which communities have the strongest presence in different municipalities. This insight helps establish potential correlations between demographic patterns and municipal factors such as housing, economic opportunities, and infrastructure. To explore these relationships further, I will begin with a deep-dive analysis of the top three most densely populated minority groups, assessing their distribution across municipalities and identifying key trends that may impact urban planning and equity.</p>
+
+			<figure>
+				<img src="Latam.jpg" alt="Map visualization" style="max-width: 80%; height: auto;" />
+				<img src="Black.jpg" alt="Map visualization" style="max-width: 80%; height: auto;" />
+				<img src="Asia.jpg" alt="Map visualization" style="max-width: 80%; height: auto;" />
+				<figcaption>
+					Hispanic, Black, and Asian Populations by Municipality in Metro Boston
+				</figcaption>
+			</figure>
+			<p>This analysis reveals that Hispanic/Latino, Non-Hispanic Black, and Non-Hispanic Asian populations are not concentrated in the same municipalities, suggesting distinct settlement patterns for each group. Boston has the largest Hispanic/Latino population, Randolph has the highest concentration of Black residents, and Acton has the highest Asian population, indicating that different social, economic, and historical factors may have shaped these distributions. However, Malden stands out as one of the few municipalities with significant representation across all three groups, making it one of the most diverse cities in Metro Boston. This could be due to affordable housing, public transportation accessibility, and inclusive community dynamics that attract a wide range of ethnic populations. In contrast, municipalities with strong concentrations of only one group may reflect historical migration patterns, economic opportunities, or housing policies that have influenced residential choices. These findings raise important questions about integration, equity, and access to resources, highlighting the need for further research into how housing, transportation, and economic factors shape demographic distributions across the region.</p>
+
+			<figure>
+				<img src="Mapitas.jpg" alt="Map visualization" style="max-width: 100%; height: 150%;" />
+				<figcaption>
+					Heatmap: Hispanic, Black, and Asian Populations by Municipality in Metro Boston
+				</figcaption>
+			</figure>
+			<p>This analysis reveals that the highest concentrations of each ethnic group are located in geographically distant areas. This dispersion poses a challenge for policymakers and community planners aiming to implement targeted solutions, as interventions cannot be centralized in one specific zone. Instead, addressing issues related to housing accessibility, public transportation, economic opportunities, and social services will require tailored, region-specific approaches that acknowledge the unique needs of each community while ensuring equitable resource distribution across multiple municipalities.</p>
+		</section>
+		<figure>
+			<img src="Melden.jpg" alt="Map visualization" style="max-width: 100%; height: 150%;" />
+			<figcaption>
+				Entire Malden population distribution 
+			</figcaption>
+		</figure>
+		<p>Malden's population is predominantly Non-Hispanic White (52.2%), making it the largest racial group in the city. However, it also has significant diversity, with Non-Hispanic Asians (17.2%), Non-Hispanic Blacks (12.7%), and Hispanic or Latino (10.8%) populations contributing to its multicultural composition. Smaller groups, including Non-Hispanic Multi-Race (2.1%), Other (4.9%), and Pacific Islanders (6.0%), further add to the city's racial mix. This distribution highlights Malden as a majority-white city but with a substantial presence of other racial and ethnic groups, reflecting a diverse community.</p>
+		<p>
+
+		</p>
+		<section>
+			<h2>How does household income distribution vary across municipalities in the Boston area?</h2>
+			<figure>
+				<img src="IncomeMalden.png" alt="" />
+				<figcaption>
+				Income Distribution Malded.
+				</figcaption>
+			</figure>
+			<p>The income distribution in Malden shows a strong presence of high-income households, particularly in the >$200k and $75k-$125k brackets, while lower-income households (<$40k) are less common. However, since the dataset does not link income to racial demographics, we cannot determine how income is distributed among different racial or ethnic groups. While Malden is a racially diverse city, with 52.2% Non-Hispanic White, 17.2% Asian, 12.7% Black, and 10.8% Hispanic or Latino populations, there is no direct evidence in this dataset to conclude whether certain racial groups are disproportionately in higher or lower income brackets. To explore this further, external data sources that break down income by race at a municipal level would be needed.</p>
+			<figure>
+				<img src="Lowincome.png" alt="" />
+				<figcaption>
+				Top 10 Municipalities with the most low-income household
+				</figcaption>
+			</figure>
+			<p>We analyzed the municipalities with the highest number of low-income households (earning less than $40,000 per year) by summing up the relevant income brackets for each municipality. Using this data, we created a bar chart to visualize the top 10 municipalities with the most low-income households. The results show that Hull, Hingham, and Winthrop have the largest absolute number of low-income households. However, this does not necessarily mean they have the highest percentage of low-income households relative to their total population. To get a clearer picture of economic disparities, further analysis could involve normalizing these values by total households in each municipality, allowing us to compare which municipalities have the highest concentration of low-income residents. Salem in a city with large population of black and latinos, without further information the correlation is inconclusive</p>
+		</section>
+		<h2>Do municipalities with a higher percentage of single-family zoning have fewer low-income households?</h2>
+		<figure>
+			<img src="mal.png" alt="" />
+			<figcaption>
+			Relationship between single-Family and Low-Income households
+			</figcaption>
+		</figure>
+		<p>The analysis revealed that some municipalities have single-family zoning percentages exceeding 100%, which is not logically possible given that single-family zoning should be a subset of total residential zoning. This suggests a potential data error, possibly due to misaggregation, incorrect denominator values, or scaling issues in the dataset. As a result, the graph may not accurately represent the relationship between zoning and low-income households, and the regression trend may be distorted by these unrealistic values. Any conclusions drawn from this visualization should be approached with caution, as errors in the dataset could impact the reliability of the findings.</p>
+
+		<section>
+			
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>Through this analysis, I gained a deeper understanding of how historical housing policies continue to shape the demographic and economic landscape of Greater Boston. By examining census data, income distribution, and zoning patterns, I was able to identify significant disparities in housing access and economic mobility, particularly for underrepresented minority communities.
+
+				I found that different racial and ethnic groups tend to be concentrated in specific municipalities, which suggests that historical and economic forces still influence residential patterns today. Malden stood out as one of the few diverse municipalities, while others remained more homogenous, likely due to longstanding zoning restrictions and economic barriers. Additionally, my analysis on single-family zoning and low-income households suggests that restrictive zoning policies may contribute to economic exclusion by limiting affordable housing options.
+				
+				However, I also encountered data inconsistencies—such as municipalities reporting zero population despite having recorded households and zoning percentages exceeding logical limits. These issues highlight the need for better data collection and validation to ensure more accurate research and policy recommendations.
+				
+				Moving forward, I believe further research should focus on the intersection of race, income, and zoning with more detailed data on housing costs, eviction rates, and homeownership disparities across racial groups. These insights could help inform zoning reforms, affordable housing initiatives, and more equitable urban planning strategies.
+				
+				Understanding these patterns is just the beginning. My hope is that this analysis contributes to ongoing discussions about housing equity and helps shape policies that promote fair housing access, economic diversity, and inclusive communities in Greater Boston..</p>
+		</section>
+	</main>
+</body>
+</html>
